@@ -1,0 +1,68 @@
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flext-start;
+
+}
+
+.size{
+    margin-left: 2px;
+}
+
+.crust{
+    margin-left: 150px;
+    margin-top: -142px;
+}
+
+.cheese{
+    margin-left: 350px;
+    margin-top: -142px;
+}
+
+.breadsticks{
+    margin-left: 145px;
+    margin-top: -366px;
+}
+
+.drinks{
+    margin-left: 250px;
+    margin-top: -210px;
+}
+
+.meats, .veggies{
+    margin: 15px;
+}
+
+.wings{
+    margin-left: 1px;
+    margin-right: 5px;
+}
+
+
+#mainSubmit{
+    margin: 20px;
+    width: 100px; 
+    margin-top: 110px;
+} 
+
+label{
+    font-weight: bold;
+    padding: 4px;
+}
+
+#spread{
+    border: 0px;
+    width: 350px;
+    height: 1em;
+    padding: 2px;
+    margin: 2px;
+}
+
+h3{
+    font-weight: bold;
+}
