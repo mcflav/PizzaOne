@@ -1,0 +1,589 @@
+<div class="row">
+    <div class="col col-sm-2 col-lg-3">
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+            <div class="menu">
+                <div class="container">
+                    <div>
+                        <h3>Hello, {{user.firstname}} {{user.lastname}}</h3>
+                    </div><br>
+                    <div class="size">
+                        <h4>Size</h4>
+                        <div class="radio" *ngFor="let size of sizes">
+                            <label>
+                                <input
+                                    type="radio"
+                                    formControlName="size"
+                                    [value]="size">{{ size }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="crust">
+                        <h4>Crust</h4>
+                        <div class="radio" *ngFor="let crust of crusts">
+                            <label>
+                                <input
+                                    type="radio"
+                                    formControlName="crust"
+                                    [value]="crust">{{ crust }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cheese">
+                        <h4>Cheese</h4>
+                        <div class="radio" *ngFor="let cheese of cheeses">
+                            <label>
+                                <input
+                                    type="radio"
+                                    formControlName="cheese"
+                                    [value]="cheese">{{ cheese }}
+                            </label>
+                        </div>
+                    </div>
+                        <div class="meats">
+                            <h4>Meats</h4>
+                            <div class="form-group">
+                                <input
+                                    type="checkbox"
+                                    id="pepp"
+                                    name="pepp"
+                                    value="Pepperoni"
+                                    formControlName="pepp"
+                                    (click)="onPeppSelected()">
+                                <label for="pepp">Pepperoni</label>
+                                <div formArrayName="pepperoni" *ngIf="peppChecked">
+                                    <div
+                                        class="form-group"
+                                        *ngFor="let portionsControl of orderForm.get('pepperoni').controls; let i = index">
+                                        <div *ngFor="let spread of spreads">
+                                                <input
+                                                id="spread"
+                                                type="radio"
+                                                class="form-control"
+                                                [formControlName]="i"
+                                                [value]="spread">{{ spread }}<br>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <input
+                                    type="checkbox"
+                                    id="sausage"
+                                    name="sausage"
+                                    value="Sausage"
+                                    formControlName="sausage"
+                                    (click)="onSausageSelected()">
+                                <label for="sausage">Italian Sausage</label>
+                                <div formArrayName="saus" *ngIf="sausageChecked">
+                                    <div
+                                        class="form-group"
+                                        *ngFor="let portionsControl of orderForm.get('saus').controls; let i = index">
+                                        <div *ngFor="let spread of spreads">
+                                            <input
+                                                id="spread"
+                                                type="radio"
+                                                class="form-control"
+                                                [formControlName]="i"
+                                                [value]="spread">{{ spread }}<br>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <input
+                                    type="checkbox"
+                                    id="bacon"
+                                    name="bacon"
+                                    value="Bacon"
+                                    formControlName="bacon"
+                                    (click)="onBaconSelected()">
+                                <label for="bacon">Bacon</label><br>
+                                <div formArrayName="bac" *ngIf="baconChecked">
+                                    <div
+                                        class="form-group"
+                                        *ngFor="let portionsControl of orderForm.get('bac').controls; let i = index">
+                                        <div *ngFor="let spread of spreads">
+                                            <input
+                                                id="spread"
+                                                type="radio"
+                                                class="form-control"
+                                                [formControlName]="i"
+                                                [value]="spread">{{ spread }}<br>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <input
+                                    type="checkbox"
+                                    id="meatball"
+                                    name="meatball"
+                                    value="Meatball"
+                                    formControlName="meatball"
+                                    (click)="onMeatballSelected()">
+                                <label for="meatball">Meatball</label><br>
+                                <div formArrayName="meat" *ngIf="meatballChecked">
+                                    <div
+                                        class="form-group"
+                                        *ngFor="let portionsControl of orderForm.get('meat').controls; let i = index">
+                                        <div *ngFor="let spread of spreads">
+                                            <input
+                                                id="spread"
+                                                type="radio"
+                                                class="form-control"
+                                                [formControlName]="i"
+                                                [value]="spread">{{ spread }}<br>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <input
+                                    type="checkbox"
+                                    id="ham"
+                                    name="ham"
+                                    value="Ham"
+                                    formControlName="ham"
+                                    (click)="onHamSelected()">
+                                <label for="ham">Ham</label><br>
+                                <div formArrayName="hamportion" *ngIf="hamChecked">
+                                    <div
+                                        class="form-group"
+                                        *ngFor="let portionsControl of orderForm.get('hamportion').controls; let i = index">
+                                        <div *ngFor="let spread of spreads">
+                                            <input
+                                                id="spread"
+                                                type="radio"
+                                                class="form-control"
+                                                [formControlName]="i"
+                                                [value]="spread">{{ spread }}<br>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <input
+                                    type="checkbox"
+                                    id="chick"
+                                    name="chick"
+                                    value="Chicken"
+                                    formControlName="chick"
+                                    (click)="onChickSelected()">
+                                <label for="chick">Chicken</label><br>
+                                <div formArrayName="chicken" *ngIf="chickChecked">
+                                    <div
+                                        class="form-group"
+                                        *ngFor="let portionsControl of orderForm.get('chicken').controls; let i = index">
+                                        <div *ngFor="let spread of spreads">
+                                            <input
+                                                id="spread"
+                                                type="radio"
+                                                class="form-control"
+                                                [formControlName]="i"
+                                                [value]="spread">{{ spread }}<br>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <input
+                                    type="checkbox"
+                                    id="beef"
+                                    name="beef"
+                                    value="Beef"
+                                    formControlName="beef"
+                                    (click)="onBeefSelected()">
+                                <label for="beef">Beef</label><br>
+                                <div formArrayName="beefportion" *ngIf="beefChecked">
+                                    <div
+                                        class="form-group"
+                                        *ngFor="let portionsControl of orderForm.get('beefportion').controls; let i = index">
+                                        <div *ngFor="let spread of spreads">
+                                            <input
+                                                id="spread"
+                                                type="radio"
+                                                class="form-control"
+                                                [formControlName]="i"
+                                                [value]="spread">{{ spread }}<br>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <input
+                                    type="checkbox"
+                                    id="pork"
+                                    name="pork"
+                                    value="Pork"
+                                    formControlName="pork"
+                                    (click)="onPorkSelected()">
+                                <label for="pork">Pork</label>
+                                <div formArrayName="porkportion" *ngIf="porkChecked">
+                                    <div
+                                        class="form-group"
+                                        *ngFor="let portionsControl of orderForm.get('porkportion').controls; let i = index">
+                                        <div *ngFor="let spread of spreads">
+                                            <input
+                                                id="spread"
+                                                type="radio"
+                                                class="form-control"
+                                                [formControlName]="i"
+                                                [value]="spread">{{ spread }}<br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="veggies">
+                        <h4>Veggies</h4>
+                        <div class="form-group">
+                            <input
+                                type="checkbox"
+                                id="mush"
+                                name="mush"
+                                value="Mushrooms"
+                                formControlName="mush"
+                                (click)="onMushroomSelected()">
+                            <label for="mush">Mushrooms</label><br>
+                            <div formArrayName="mushrooms" *ngIf="mushChecked">
+                                <div
+                                    class="form-group"
+                                    *ngFor="let portionsControl of orderForm.get('mushrooms').controls; let i = index">
+                                    <div *ngFor="let spread of spreads">
+                                        <input
+                                            id="spread"
+                                            type="radio"
+                                            class="form-control"
+                                            [formControlName]="i"
+                                            [value]="spread">{{ spread }}<br>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <input
+                                type="checkbox"
+                                id="red"
+                                name="red"
+                                value="Red Onions"
+                                formControlName="red"
+                                (click)="onOnionSelected()">
+                            <label for="red">Red Onions</label><br>
+                            <div formArrayName="onions" *ngIf="onionChecked">
+                                <div
+                                    class="form-group"
+                                    *ngFor="let portionsControl of orderForm.get('onions').controls; let i = index">
+                                    <div *ngFor="let spread of spreads">
+                                        <input
+                                            id="spread"
+                                            type="radio"
+                                            class="form-control"
+                                            [formControlName]="i"
+                                            [value]="spread">{{ spread }}<br>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <input
+                                type="checkbox"
+                                id="pine"
+                                name="pine"
+                                value="Pineapple"
+                                formControlName="pine"
+                                (click)="onPineappleSelected()">
+                            <label for="pine">Pineapple</label><br>
+                            <div formArrayName="pineapple" *ngIf="pineChecked">
+                                <div
+                                    class="form-group"
+                                    *ngFor="let portionsControl of orderForm.get('pineapple').controls; let i = index">
+                                    <div *ngFor="let spread of spreads">
+                                        <input
+                                            id="spread"
+                                            type="radio"
+                                            class="form-control"
+                                            [formControlName]="i"
+                                            [value]="spread">{{ spread }}<br>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <input
+                                type="checkbox"
+                                id="black"
+                                name="black"
+                                value="Black Olives"
+                                formControlName="black"
+                                (click)="onOliveSelected()">
+                            <label for="black">Black Olives</label><br>
+                            <div formArrayName="olives" *ngIf="oliveChecked">
+                                <div
+                                    class="form-group"
+                                    *ngFor="let portionsControl of orderForm.get('olives').controls; let i = index">
+                                    <div *ngFor="let spread of spreads">
+                                        <input
+                                            id="spread"
+                                            type="radio"
+                                            class="form-control"
+                                            [formControlName]="i"
+                                            [value]="spread">{{ spread }}<br>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <input
+                                type="checkbox"
+                                id="green"
+                                name="green"
+                                value="Green Peppers"
+                                formControlName="green"
+                                (click)="onGreenPepperSelected()">
+                            <label for="green">Green Peppers</label><br>
+                            <div formArrayName="gpeppers" *ngIf="gPepperChecked">
+                                <div
+                                    class="form-group"
+                                    *ngFor="let portionsControl of orderForm.get('gpeppers').controls; let i = index">
+                                    <div *ngFor="let spread of spreads">
+                                        <input
+                                            id="spread"
+                                            type="radio"
+                                            class="form-control"
+                                            [formControlName]="i"
+                                            [value]="spread">{{ spread }}<br>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <input
+                                type="checkbox"
+                                id="banana"
+                                name="banana"
+                                value="Banana Peppers"
+                                formControlName="banana"
+                                (click)="onBananaPepperSelected()">
+                            <label for="banana">Banana Peppers</label><br>
+                            <div formArrayName="bpeppers" *ngIf="bPepperChecked">
+                                <div
+                                    class="form-group"
+                                    *ngFor="let portionsControl of orderForm.get('bpeppers').controls; let i = index">
+                                    <div *ngFor="let spread of spreads">
+                                        <input
+                                            id="spread"
+                                            type="radio"
+                                            class="form-control"
+                                            [formControlName]="i"
+                                            [value]="spread">{{ spread }}<br>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <input
+                                type="checkbox"
+                                id="roma"
+                                name="roma"
+                                value="Roma Tomatoes"
+                                formControlName="roma"
+                                (click)="onTomatoSelected()">
+                            <label for="roma">Roma Tomatoes</label>
+                            <div formArrayName="tomatoes" *ngIf="tomatoChecked">
+                                <div
+                                    class="form-group"
+                                    *ngFor="let portionsControl of orderForm.get('tomatoes').controls; let i = index">
+                                    <div *ngFor="let spread of spreads">
+                                        <input
+                                            id="spread"
+                                            type="radio"
+                                            class="form-control"
+                                            [formControlName]="i"
+                                            [value]="spread">{{ spread }}<br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wings">
+                        <h4>Wings</h4>
+                        <h6>6pc - $4.99</h6>
+                        <h6>12pc - $7.99</h6>
+                        <div class="form-group">
+                            <input
+                                type="checkbox"
+                                id="mildsix"
+                                name="mildsix"
+                                value="mildsix"
+                                formControlName="mildsix"
+                                ng-model="mildsix"
+                                (click)="onMildSixSelected()">
+                            <label for="mildsix">Mild (6 piece)</label><br>
+                            <input
+                                type="checkbox"
+                                id="mildtwelve"
+                                name="mildtwelve"
+                                value="mildtwelve"
+                                formControlName="mildtwelve"
+                                (click)="onMildTwelveSelected()">
+                            <label for="mildtwelve">Mild (12 piece)</label><br>
+                            <input
+                                type="checkbox"
+                                id="hotsix"
+                                name="hotsix"
+                                value="hotsix"
+                                formControlName="hotsix"
+                                (click)="onHotSixSelected()">
+                            <label for="hotsix">Hot (6 piece)</label><br>
+                            <input
+                                type="checkbox"
+                                id="hottwelve"
+                                name="hottwelve"
+                                value="hottwelve"
+                                formControlName="hottwelve"
+                                (click)="onHotTwelveSelected()">
+                            <label for="hottwelve">Hot (12 piece)</label><br>
+                            <input
+                                type="checkbox"
+                                id="bbqsix"
+                                name="bbqsix"
+                                value="bbqsix"
+                                formControlName="bbqsix"
+                                (click)="onBbqSixSelected()">
+                            <label for="bbqsix">BBQ (6 piece)</label><br>
+                            <input
+                                type="checkbox"
+                                id="bbqtwelve"
+                                name="bbqtwelve"
+                                value="bbqtwelve"
+                                formControlName="bbqtwelve"
+                                (click)="onBbqTwelveSelected()">
+                            <label for="bbqtwelve">BBQ (12 piece)</label><br>
+                            <input
+                                type="checkbox"
+                                id="sweetsix"
+                                name="sweetsix"
+                                value="sweetsix"
+                                formControlName="sweetsix"
+                                (click)="onSweetsixSelected()">
+                            <label for="sweetsix">Sweet & Spicy (6 piece)</label><br>
+                            <input
+                                type="checkbox"
+                                id="sweettwelve"
+                                name="sweettwelve"
+                                value="sweettwelve"
+                                formControlName="sweettwelve"
+                                (click)="onSweettwelveSelected()">
+                            <label for="sweettwelve">Sweet & Spicy (12 piece)</label>
+                        </div>
+                    </div>
+                    <div class="breadsticks">
+                        <h4>Breadsticks</h4>
+                        <h6>6pc - $2.99</h6>
+                        <h6>12pc - $4.99</h6>
+                        <h6>18pc - $6.99</h6>
+                        <input
+                            type="checkbox"
+                            id="six"
+                            name="six"
+                            value="six"
+                            formControlName="six"
+                            (click)="onSixSelected()">
+                        <label for="six">6 Piece</label><br>
+                        <input
+                            type="checkbox"
+                            id="twelve"
+                            name="twelve"
+                            value="tweleve"
+                            formControlName="twelve"
+                            (click)="onTwelveSelected()">
+                        <label for="twelve">12 Piece</label><br>
+                        <input
+                            type="checkbox"
+                            id="eighteen"
+                            name="eighteen"
+                            value="eighteen"
+                            formControlName="eighteen"
+                            (click)="onEighteenSelected()">
+                        <label for="eighteen">18 Piece</label>
+                    </div>
+                    <div class="drinks">
+                        <h4>Drinks</h4>
+                        <h6>2 liter - $1.99</h6>
+                        <div class="form-group">
+                            <input
+                                type="checkbox"
+                                id="dew"
+                                name="dew"
+                                value="dew"
+                                formControlName="dew"
+                                (click)="onDewSelected()">
+                            <label for="dew">Mountain Dew</label><br>
+                            <input
+                                type="checkbox"
+                                id="coke"
+                                name="coke"
+                                value="coke"
+                                formControlName="coke"
+                                (click)="onCokeSelected()">
+                            <label for="coke">Coke</label><br>
+                            <input
+                                type="checkbox"
+                                id="sprite"
+                                name="sprite"
+                                value="sprite"
+                                formControlName="sprite"
+                                (click)="onSpriteSelected()">
+                            <label for="sprite">Sprite</label><br>
+                            <input
+                                type="checkbox"
+                                id="tea"
+                                name="tea"
+                                value="tea"
+                                formControlName="tea"
+                                (click)="onTeaSelected()">
+                            <label for="tea">Lipton Brisk Iced Tea</label><br>
+                            <input
+                                type="checkbox"
+                                id="orange"
+                                name="orange"
+                                value="orange"
+                                formControlName="orange"
+                                (click)="onOrangeSelected()">
+                            <label for="orange">Fanta Orange</label>
+                        </div>
+                    </div>
+
+                <br>
+                <button
+                    id="mainSubmit"
+                    class="btn btn-primary"
+                    type="submit"
+                    [disabled]="!orderForm.valid">Submit</button>
+                <div *ngIf="submitted">
+                    <h3>Thank you for your Order!!</h3>
+                      <h4>Order Summary</h4>
+                          <p>Pizza Size: {{ orderForm.value.size }}</p>
+                          <p>Pizza Crust: {{ orderForm.value.crust }}</p>
+                          <p>Pizza Cheese: {{ orderForm.value.cheese }}</p>
+                          <p *ngIf="currentMeatOrder">Pizza Meats & Portion: {{ meats }}</p>
+                          <p *ngIf="currentVeggieOrder">Pizza Veggies & Portion: {{ veggies }}</p>
+                          <p *ngIf="currentWingOrder">Wings: {{ wings }}</p>
+                          <p *ngIf="currentBreadstickOrder">Breadsticks: {{ breadsticks }}</p>
+                          <p *ngIf="currentDrinkOrder">Drinks: {{ drinks }}</p>
+                          <br>
+                          <p>Order Total: {{ roundTotal }}</p>
+                          <hr>
+                    <button
+                        id="view"
+                        class="btn btn-primary"
+                        type="button"
+                        (click)="onPastOrders()">Previous Orders
+                    </button>
+                    <hr>
+                    <div *ngIf="showOrder">
+                      <div *ngIf="priorOrder">
+                        <h4>Previous Orders</h4>
+                        <div *ngFor="let order of getOrder">
+                          <div *ngFor="let o of order">
+                            <hr>
+                            <p>Pizza Size: {{ o.size }}</p>
+                            <p>Pizza Crust: {{ o.crust }}</p>
+                            <p>Pizza Cheese: {{ o.cheese }}</p>
+                            <p>Pizza Meats & Portion: {{ o.meats }}</p>
+                            <p>Pizza Veggies & Portion: {{ o.veggies }}</p>
+                            <p>Wings: {{ o.wings }}</p>
+                            <p>Breadsticks: {{ o.breadsticks }}</p>
+                            <p>Drinks: {{ o.drinks }}</p>
+                            <br>
+                            <p>Order Total: {{ o.total }}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="!priorOrder">
+                          <h4>No Previous Orders To Display</h4>
+                      </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </form>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <router-outlet></router-outlet>
+    </div>
+</div>

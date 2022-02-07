@@ -1,0 +1,39 @@
+#presentation{
+    color: pink;
+}
+
+.menu{
+    border: solid 7px brown;
+    background-color: brown;
+    padding-bottom: 40px;
+    padding-right: 10px;
+    /* position: fixed; */
+    /* top: 0; */
+    width: 100%;
+   
+    
+    
+}
+
+
+
+.nav navbar-nav navbar-right{
+    margin-left: 5px;
+}
+
+#links{
+    color:white;
+} 
+
+#title{
+    margin-left: 5;
+    padding-top: 20px;
+    color: brown;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+
