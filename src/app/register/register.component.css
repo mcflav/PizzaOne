@@ -1,8 +1,17 @@
 h2{
     text-align: center;
+    color: darkorange;
 }
 
 .form-group{
     width: 200px;
     margin: 0 auto;
+}
+
+label{
+  color:darkorange;
+}
+
+button{
+  background-color:darkorange;
 }

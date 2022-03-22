@@ -533,7 +533,7 @@
                     id="mainSubmit"
                     class="btn btn-primary"
                     type="submit"
-                    [disabled]="!orderForm.valid">Submit</button>
+                    [disabled]="!orderForm.valid || submitted">Submit</button>
                 <div *ngIf="submitted">
                     <h3>Thank you for your Order!!</h3>
                       <h4>Order Summary</h4>

@@ -46,13 +46,14 @@
 
 #mainSubmit{
     margin: 20px;
-    width: 100px; 
+    width: 100px;
     margin-top: 110px;
-} 
+}
 
 label{
     font-weight: bold;
     padding: 4px;
+    color: darkorange;
 }
 
 #spread{
@@ -65,4 +66,17 @@ label{
 
 h3{
     font-weight: bold;
+    color: red;
+}
+
+h4{
+  color: red;
+}
+
+h6{
+  color: red;
+}
+
+button{
+  background-color: darkorange;
 }

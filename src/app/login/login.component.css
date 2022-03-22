@@ -1,5 +1,6 @@
 h2{
     text-align: center;
+    color: darkorange;
 }
 
 .form-group{
@@ -7,6 +8,25 @@ h2{
     margin: 0 auto;
 }
 
+label{
+  color: darkorange;
+}
+
+#password{
+  width: 200px;
+}
+
+span{
+  color:red;
+}
+
 input.ng-invalid.ng-touched{
     border: 1px solid red;
+}
+
+show-hide-password{
+  color:darkorange;
+}
+button{
+  background-color:darkorange;
 }
