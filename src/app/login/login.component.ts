@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
   lastname;
   id;
   isLoading = false;
-  validLogin = false;
   userValid = false;
-  showInvalidMessage = false;
   error: string = null;
 
   constructor(private usersServices: UsersServices,
@@ -62,8 +60,6 @@ export class LoginComponent implements OnInit {
   isUserValid(isValid: boolean){
     this.userValid = isValid;
     if(this.userValid){
-      this.validLogin = true;
-      this.showInvalidMessage = false;
       this.users = this.usersServices.getUsers();
       for(var i = 0; i < this.users.length; i++){
         if(this.users[i].email === this.login.email){

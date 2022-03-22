@@ -1194,6 +1194,7 @@ export class OrdersComponent implements OnInit {
       this.priorOrder = true;
       for(let i = 0; i < this.getOrder.length - 1; i++){
         for(let j = 0; j < this.getOrder.length - 1; j++){
+          console.log(this.getOrder[i][j].meats);
           if(this.getOrder[i][j].meats !== "no meats"){
             this.meatOrder = true;
           }else{
