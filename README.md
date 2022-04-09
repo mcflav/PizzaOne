@@ -1,27 +1,10 @@
 # PizzaOne
+This is a single page web application created in Angular. It uses TD (template driven) and Reactive Forms. It allows the user place an order online. The order form is reactive and allows the user to create a pizza order by select the crust type, size, and added toppings. The user can also order wings, breadsticks, and/or drinks. The user is then provided a total for the items once the order is submitted. The data is stored in a mongoDB backend database. I also created a backend restful application using Node.js and deployed the project to Heroku. This Angular application uses the apis from the Node.js restful apis application. That project can also be found on gitHub - https://github.com/mcflav/pizzaOne-backend.
+Currently this project needs to be ran locally from a machine with Node.js(npm) installed. To run locally follow the below steps:
+•	download the project into a folder on your local machine.
+•	launch a command prompt and browse to the folder the project is in.
+•	issue the following command to update the project on your local machine: npm install
+•	issue the following command to execute the website: ng serve
+•	Open a web browser and enter the following url: http://localhost:4200/.
+•	This will take you to the home page of the web application.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
